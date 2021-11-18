@@ -1,0 +1,1 @@
+/Users/akirwan/dotfiles/config/nvim/coc.vimrc

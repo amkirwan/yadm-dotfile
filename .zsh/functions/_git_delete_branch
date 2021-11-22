@@ -1,1 +1,4 @@
-/Users/akirwan/dotfiles/zsh/functions/_git_delete_branch
+_git_delete_branch ()
+{
+  __gitcomp "$(__git_heads)"
+}

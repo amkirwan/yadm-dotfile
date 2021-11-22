@@ -1,1 +1,32 @@
-/Users/akirwan/dotfiles/gitconfig
+[init]
+  templatedir = ~/.git_template
+[branch]
+  autosetuprebase = always
+[push]
+  default = current
+[color]
+  ui = auto
+[date]
+  relative
+[merge]
+  ff = only
+[commit]
+  template = ~/.gitmessage
+[core]
+  editor = nvim
+[fetch]
+  prune = true
+[apply]
+  whitespace = fix
+[rebase]
+  autosquash = true
+[include]
+  path = ~/.gitconfig.local
+  path = ~/.gitconfig.extras
+[diff]
+  colorMoved = zebra
+[pretty]
+  colored = format:%Cred%h%Creset %s %Cgreen(%cr) %C(bold gray)%an%Creset
+[user]
+	email = amkirwan@gmail.com
+	name = amkirwan

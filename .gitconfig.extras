@@ -1,1 +1,26 @@
-/Users/akirwan/dotfiles/gitconfig.extras
+[alias]
+  aa = add --all
+  ap = add --patch
+  br = branch
+  branches = for-each-ref --sort=-committerdate --format=\"%(color:gray)%(authordate:relative)%09%(color:red)%(authorname)%09%(color:white)%(color:bold)%(refname:short)\" refs/remotes
+  ca = commit --amend --reuse-message=HEAD
+  ci = commit -v
+  co = checkout
+  l = log --pretty=colored
+  pf = push --force-with-lease
+  st = status
+  dtag = !git tag deal-`date \"+%Y.%m.%d_%H.%M\"`
+  l5 = log --oneline -5
+  lH5 = log --pretty="format:%H %s" -5
+  l10 = log --oneline -10
+  lH10 = log --pretty="format:%H %s" -10
+  files = log --name-only
+  graph = log --decorate --graph --full-history --all --color --pretty=format:"%x1b[31m%h%x09%x1b[32m%d%x1b[0m%x20%s"
+  graph-all = log --decorate --graph --oneline --all
+[core]
+  editor = nvim
+  pager = less -FRX
+[diff]
+  colorMoved = zebra
+[pretty]
+  colored = format:%Cred%h%Creset %s %Cgreen(%cr) %C(bold gray)%an%Creset

@@ -1,1 +1,41 @@
-/Users/akirwan/dotfiles/config/nvim/coc-settings.json
+{
+  "coc.preferences.formatOnSaveFiletypes": [
+    "javascript",
+    "javascriptreact",
+    "golang"
+  ],
+  "hover.target": "float",
+  "tsserver.formatOnType": true,
+  "coc.preferences.formatOnType": true,
+  "javascript.preferences.quoteStyle": "single",
+  "eslint.autoFix": true,
+  "eslint.autoFixOnSave": true,
+  "prettier.eslintIntegration": true,
+  "explorer.position": "right",
+  "explorer.previewAction.onHover": false,
+  "explorer.icon.enableNerdfont": true,
+  "go.goplsOptions": {
+    "env": {
+      "GO111MODULE": "off"
+    }
+  },
+  "languageserver": {
+    "golang": {
+      "command": "gopls",
+      "rootPatterns": ["main.go", ".vim/", ".git/", ".hg/"],
+      "filetypes": ["go"],
+      "initializationOptions": {
+        "usePlaceholders": true
+      },
+    },
+    "flow": {
+      "command": "flow",
+      "args": ["lsp"],
+      "filetypes": ["javascript", "javascriptreact", "javascript.jsx"],
+      "initializationOptions": {},
+      "requireRootPattern": true,
+      "settings": {},
+      "rootPatterns": [".flowconfig"]
+    }
+  }
+}

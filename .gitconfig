@@ -27,6 +27,4 @@
   colorMoved = zebra
 [pretty]
   colored = format:%Cred%h%Creset %s %Cgreen(%cr) %C(bold gray)%an%Creset
-[user]
-	email = amkirwan@gmail.com
-	name = amkirwan
+	name = akirwan

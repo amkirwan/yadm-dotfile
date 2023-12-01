@@ -60,6 +60,9 @@ autoload -U edit-command-line
 zle -N edit-command-line
 bindkey -M vicmd v edit-command-line
 
+# bindkey for zsh-autosuggestions
+bindkey '^ ' autosuggest-accept
+
 export GOPATH=$(go env GOPATH)
 
 export PATH=$HOME/.rbenv/bin:./node_modules/.bin:${HOME}/:/usr/local/bin:$(go env GOPATH)/bin:$PATH

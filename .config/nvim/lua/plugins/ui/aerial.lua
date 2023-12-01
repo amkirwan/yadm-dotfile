@@ -10,6 +10,7 @@ return {
     {
       "<leader>a",
       "<cmd>AerialToggle!<CR>",
+      desc = "Aerial Toggle",
     },
   },
 }

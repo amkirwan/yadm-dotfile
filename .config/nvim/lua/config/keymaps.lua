@@ -62,6 +62,13 @@ vim.keymap.set("n", "<leader>sxp", '<cmd>lua require("spectre").open_file_search
 vim.keymap.set(
   "n",
   "<leader>fs",
+  ":lua require('telescope.builtin').live_grep({ search_dirs = { vim.fn.expand('%:p') } })<CR>",
+  { desc = "grep current file", noremap = true, silent = true }
+)
+
+vim.keymap.set(
+  "n",
+  "<leader>sl",
   require("telescope").extensions.live_grep_args.live_grep_args,
   { desc = "live args", noremap = true }
 )

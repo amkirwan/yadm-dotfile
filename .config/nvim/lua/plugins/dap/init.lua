@@ -69,43 +69,6 @@ return {
     },
   },
 
-  opts = {
-    adapters = {
-      delve = {
-        type = "server",
-        port = 2345,
-      },
-    },
-    configuration = {
-      go = {
-        {
-          type = "delve",
-          request = "attach",
-          name = "Attach to Go",
-          mode = "remote",
-          substitutePath = {
-            {
-              from = "${env:GOPATH}/src",
-              to = "src",
-            },
-            {
-              from = "${env:GOPATH}/bazel-go-code/external/",
-              to = "external/",
-            },
-            {
-              from = "${env:GOPATH}/bazel-out/",
-              to = "bazel-out/",
-            },
-            {
-              from = "${env:GOPATH}/bazel-go-code/external/go_sdk",
-              to = "GOROOT/",
-            },
-          },
-        },
-      },
-    },
-  },
-
   -- stylua: ignore
   keys = {
     { "<leader>dB", function() require("dap").set_breakpoint(vim.fn.input('Breakpoint condition: ')) end, desc = "Breakpoint Condition" },
@@ -128,7 +91,41 @@ return {
 
   config = function()
     local Config = require("lazyvim.config")
+    local dap = require("dap")
+    require("dap-go").setup()
+
     vim.api.nvim_set_hl(0, "DapStoppedLine", { default = true, link = "Visual" })
+
+    dap.adapters.delve = {
+      type = "server",
+      port = 2345,
+    }
+    dap.configurations.go = {
+      {
+        type = "delve",
+        request = "attach",
+        name = "Attach to Go",
+        mode = "remote",
+        substitutePath = {
+          {
+            from = "${env:GOPATH}/src",
+            to = "src",
+          },
+          {
+            from = "${env:GOPATH}/bazel-go-code/external/",
+            to = "external/",
+          },
+          {
+            from = "${env:GOPATH}/bazel-out/",
+            to = "bazel-out/",
+          },
+          {
+            from = "${env:GOPATH}/bazel-go-code/external/go_sdk",
+            to = "GOROOT/",
+          },
+        },
+      },
+    }
 
     for name, sign in pairs(Config.icons.dap) do
       sign = type(sign) == "table" and sign or { sign }

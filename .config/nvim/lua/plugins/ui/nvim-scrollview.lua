@@ -13,13 +13,3 @@ return {
     })
   end,
 }
-
--- {
---   'dstein64/nvim-scrollview',
---   opts = {},
---   config = function(_, opts)
---     require('scrollview').setup(opts)
---     require('scrollview.contrib.gitsigns').setup()
---   end,
---   dependencies = { 'lewis6991/gitsigns.nvim' }
--- },

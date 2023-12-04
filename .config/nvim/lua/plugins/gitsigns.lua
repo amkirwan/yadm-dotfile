@@ -1,6 +1,6 @@
 return {
   "lewis6991/gitsigns.nvim",
-  event = { "BufReadPre", "BufNewFile" },
+  event = "LazyFile",
   opts = {
     -- current_line_blame = true,
     _signs_staged_enable = true,
@@ -23,7 +23,7 @@ return {
       untracked = { text = "|" },
     },
 
-    on_attach = function(bufnr)
+    on_attach = function(buffer)
       local gs = package.loaded.gitsigns
 
       local function map(mode, l, r, desc)

@@ -8,6 +8,7 @@ return {
       alpha = true,
       cmp = true,
       dashboard = true,
+      bufferline = true,
       flash = true,
       gitsigns = true,
       headlines = true,
@@ -38,9 +39,12 @@ return {
       treesitter_context = true,
       which_key = true,
     },
+    transparent_background = false,
     custom_highlights = function(colors)
       return {
         FlashLabel = { fg = colors.crust, bg = colors.mauve, style = { "bold" } },
+        TreesitterContext = { link = "Headline6", default = true },
+        TreesitterContextBottom = { sp = colors.dim, style = { "underline" } },
       }
     end,
   },

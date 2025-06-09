@@ -34,14 +34,15 @@ vim.keymap.set("n", "<leader>bC", ":BufferLinePickClose<CR>", { desc = "Close bu
 vim.keymap.set("n", "<leader>bse", ":BufferLineSortByExtension<CR>", { desc = "Sort buffers by extension" })
 vim.keymap.set("n", "<leader>bsd", ":BufferLineSortByDirectory<CR>", { desc = "Sort buffers by dir" })
 
--- vim.keymap.set("n", "<leader>1", '<cmd>lua require("bufferline").go_to(1, true)<cr>', { desc = "Buffer 1" })
--- vim.keymap.set("n", "<leader>2", '<cmd>lua require("bufferline").go_to(2, true)<cr>', { desc = "Buffer 2" })
--- vim.keymap.set("n", "<leader>3", '<cmd>lua require("bufferline").go_to(3, true)<cr>', { desc = "Buffer 3" })
--- vim.keymap.set("n", "<leader>5", '<cmd>lua require("bufferline").go_to(5, true)<cr>', { desc = "Buffer 4" })
--- vim.keymap.set("n", "<leader>6", '<cmd>lua require("bufferline").go_to(6, true)<cr>', { desc = "Buffer 5" })
--- vim.keymap.set("n", "<leader>7", '<cmd>lua require("bufferline").go_to(7, true)<cr>', { desc = "Buffer 6" })
--- vim.keymap.set("n", "<leader>8", '<cmd>lua require("bufferline").go_to(8, true)<cr>', { desc = "Buffer 7" })
--- vim.keymap.set("n", "<leader>9", '<cmd>lua require("bufferline").go_to(9, true)<cr>', { desc = "Buffer 9" })
+vim.keymap.set("n", "<leader>1", '<cmd>lua require("bufferline").go_to(1, true)<cr>', { desc = "Buffer 1" })
+vim.keymap.set("n", "<leader>2", '<cmd>lua require("bufferline").go_to(2, true)<cr>', { desc = "Buffer 2" })
+vim.keymap.set("n", "<leader>3", '<cmd>lua require("bufferline").go_to(3, true)<cr>', { desc = "Buffer 3" })
+vim.keymap.set("n", "<leader>4", '<cmd>lua require("bufferline").go_to(4, true)<cr>', { desc = "Buffer 4" })
+vim.keymap.set("n", "<leader>5", '<cmd>lua require("bufferline").go_to(5, true)<cr>', { desc = "Buffer 5" })
+vim.keymap.set("n", "<leader>6", '<cmd>lua require("bufferline").go_to(6, true)<cr>', { desc = "Buffer 6" })
+vim.keymap.set("n", "<leader>7", '<cmd>lua require("bufferline").go_to(7, true)<cr>', { desc = "Buffer 7" })
+vim.keymap.set("n", "<leader>8", '<cmd>lua require("bufferline").go_to(8, true)<cr>', { desc = "Buffer 8" })
+vim.keymap.set("n", "<leader>9", '<cmd>lua require("bufferline").go_to(9, true)<cr>', { desc = "Buffer 9" })
 
 -- lsp diagnostic to show in popup when text is too long
 vim.keymap.set(
@@ -50,14 +51,6 @@ vim.keymap.set(
   vim.diagnostic.open_float,
   { desc = "lsp diagnostic popup", noremap = true, silent = true }
 )
-
--- Spectre
-vim.keymap.set("n", "<leader>sxw", '<cmd>lua require("spectre").open_visual({select_word=true})<CR>', {
-  desc = "Search current word (Spectre)",
-})
-vim.keymap.set("n", "<leader>sxp", '<cmd>lua require("spectre").open_file_search({select_word=true})<CR>', {
-  desc = "Search on current file (Spectre)",
-})
 
 vim.keymap.set(
   "n",
@@ -68,7 +61,28 @@ vim.keymap.set(
 
 vim.keymap.set(
   "n",
-  "<leader>sl",
-  require("telescope").extensions.live_grep_args.live_grep_args,
-  { desc = "live args", noremap = true }
+  "<leader>sx",
+  ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>",
+  { desc = "live grep args", noremap = true }
 )
+
+vim.keymap.set("i", "<Tab>", function()
+  local copilot = require("copilot.suggestion")
+  if copilot.is_visible() then
+    copilot.accept()
+  else
+    local cmp = require("cmp")
+    if cmp.visible() then
+      cmp.select_next_item()
+    else
+      vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Tab>", true, false, true), "n", true)
+    end
+  end
+end, { desc = "Copilot Accept or Next Completion", silent = true })
+
+-- vim.keymap.set(
+--   "n",
+--   "<leader>sl",
+--   require("telescope").extensions.live_grep_args,
+--   { desc = "live args", noremap = true }
+-- )

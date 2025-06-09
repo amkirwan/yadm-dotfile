@@ -20,13 +20,18 @@ return {
           .. (diag.warning and icons.Warn .. diag.warning or "")
         return vim.trim(ret)
       end,
+      indicator = {
+        style = "underline",
+      },
       numbers = "ordinal",
+      separator_style = "slant",
       offsets = {
         {
-          filetype = "neo-tree",
-          text = "Neo-tree",
+          filetype = "NvimTree",
+          text = "File Explorer",
           highlight = "Directory",
           text_align = "left",
+          separator = true,
         },
       },
     },

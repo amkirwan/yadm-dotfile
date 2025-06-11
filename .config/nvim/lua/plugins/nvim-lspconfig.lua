@@ -1,3 +1,5 @@
+local home = os.getenv("HOME")
+
 return {
   "neovim/nvim-lspconfig",
   opts = {
@@ -11,7 +13,7 @@ return {
     servers = {
       eslint = {
         settings = {
-          nodePath = "/Users/akirwan/web-code/.yarn/sdks",
+          nodePath = home .. "/web-code/.yarn/sdks",
           -- helps eslint find the eslintrc when it's placed in a subfolder instead of the cwd root
           workingDirectory = { mode = "auto" },
         },
@@ -25,7 +27,7 @@ return {
             tsserver = {
               maxTsServerMemory = 8192,
             },
-            tsdk = "/Users/akirwan/web-code/.yarn/sdks/typescript/lib",
+            tsdk = home .. "/web-code/.yarn/sdks/typescript/lib",
           },
         },
         documentFormattingProvider = false,

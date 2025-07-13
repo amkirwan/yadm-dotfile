@@ -34,15 +34,15 @@ vim.keymap.set("n", "<leader>bC", ":BufferLinePickClose<CR>", { desc = "Close bu
 vim.keymap.set("n", "<leader>bse", ":BufferLineSortByExtension<CR>", { desc = "Sort buffers by extension" })
 vim.keymap.set("n", "<leader>bsd", ":BufferLineSortByDirectory<CR>", { desc = "Sort buffers by dir" })
 
-vim.keymap.set("n", "<leader>1", '<cmd>lua require("bufferline").go_to(1, true)<cr>', { desc = "Buffer 1" })
-vim.keymap.set("n", "<leader>2", '<cmd>lua require("bufferline").go_to(2, true)<cr>', { desc = "Buffer 2" })
-vim.keymap.set("n", "<leader>3", '<cmd>lua require("bufferline").go_to(3, true)<cr>', { desc = "Buffer 3" })
-vim.keymap.set("n", "<leader>4", '<cmd>lua require("bufferline").go_to(4, true)<cr>', { desc = "Buffer 4" })
-vim.keymap.set("n", "<leader>5", '<cmd>lua require("bufferline").go_to(5, true)<cr>', { desc = "Buffer 5" })
-vim.keymap.set("n", "<leader>6", '<cmd>lua require("bufferline").go_to(6, true)<cr>', { desc = "Buffer 6" })
-vim.keymap.set("n", "<leader>7", '<cmd>lua require("bufferline").go_to(7, true)<cr>', { desc = "Buffer 7" })
-vim.keymap.set("n", "<leader>8", '<cmd>lua require("bufferline").go_to(8, true)<cr>', { desc = "Buffer 8" })
-vim.keymap.set("n", "<leader>9", '<cmd>lua require("bufferline").go_to(9, true)<cr>', { desc = "Buffer 9" })
+-- vim.keymap.set("n", "<leader>1", '<cmd>lua require("bufferline").go_to(1, true)<cr>', { desc = "Buffer 1" })
+-- vim.keymap.set("n", "<leader>2", '<cmd>lua require("bufferline").go_to(2, true)<cr>', { desc = "Buffer 2" })
+-- vim.keymap.set("n", "<leader>3", '<cmd>lua require("bufferline").go_to(3, true)<cr>', { desc = "Buffer 3" })
+-- vim.keymap.set("n", "<leader>4", '<cmd>lua require("bufferline").go_to(4, true)<cr>', { desc = "Buffer 4" })
+-- vim.keymap.set("n", "<leader>5", '<cmd>lua require("bufferline").go_to(5, true)<cr>', { desc = "Buffer 5" })
+-- vim.keymap.set("n", "<leader>6", '<cmd>lua require("bufferline").go_to(6, true)<cr>', { desc = "Buffer 6" })
+-- vim.keymap.set("n", "<leader>7", '<cmd>lua require("bufferline").go_to(7, true)<cr>', { desc = "Buffer 7" })
+-- vim.keymap.set("n", "<leader>8", '<cmd>lua require("bufferline").go_to(8, true)<cr>', { desc = "Buffer 8" })
+-- vim.keymap.set("n", "<leader>9", '<cmd>lua require("bufferline").go_to(9, true)<cr>', { desc = "Buffer 9" })
 
 -- lsp diagnostic to show in popup when text is too long
 vim.keymap.set(
@@ -50,20 +50,6 @@ vim.keymap.set(
   "<leader>do",
   vim.diagnostic.open_float,
   { desc = "lsp diagnostic popup", noremap = true, silent = true }
-)
-
-vim.keymap.set(
-  "n",
-  "<leader>fs",
-  ":lua require('telescope.builtin').live_grep({ search_dirs = { vim.fn.expand('%:p') } })<CR>",
-  { desc = "grep current file", noremap = true, silent = true }
-)
-
-vim.keymap.set(
-  "n",
-  "<leader>sx",
-  ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>",
-  { desc = "live grep args", noremap = true }
 )
 
 vim.keymap.set("i", "<Tab>", function()

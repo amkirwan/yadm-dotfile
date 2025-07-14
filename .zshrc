@@ -65,7 +65,7 @@ bindkey '^ ' autosuggest-accept
 
 export GOPATH=$(go env GOPATH)
 
-export PATH=$HOME/.rbenv/bin:./node_modules/.bin:${HOME}/:/usr/local/bin:$(go env GOPATH)/bin:$PATH
+export PATH=$HOME/./node_modules/.bin:${HOME}/:/usr/local/bin:$(go env GOPATH)/bin:$PATH
 
 # alias python=/usr/local/bin/python3
 
@@ -81,8 +81,6 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 [[ -s "$HOME/.avn/bin/avn.sh" ]] && source "$HOME/.avn/bin/avn.sh" # load avn
 
 export VISUAL='nvim'
-
-eval "$(rbenv init -)"
 
 alias hi='history'
 alias dcoe='docker-compose exec'

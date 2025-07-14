@@ -3,7 +3,7 @@
 
 palette = 'catppuccin_mocha'
 
-command_timeout	= 10000
+command_timeout	= 500
 
 format = """
 ╭─ \
@@ -43,6 +43,13 @@ CentOS = ""
 Debian = "󰣚"
 Redhat = "󱄛"
 RedHatEnterprise = "󱄛"
+
+[username]
+format = '[$user]($style) '
+
+[hostname]
+ssh_symbol = "🌐 "
+format = '[⦒ ](bold fg:pink)[$ssh_symbol $hostname]($style) '
 
 [directory]
 fish_style_pwd_dir_length = 3

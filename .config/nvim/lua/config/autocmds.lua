@@ -35,12 +35,20 @@ function GoFormatAndImports(wait_ms)
   end
 end
 
-vim.api.nvim_create_augroup("GoAutoFormat", { clear = true })
+-- vim.api.nvim_create_augroup("GoAutoFormat", { clear = true })
+--
+-- vim.api.nvim_create_autocmd("BufWritePre", {
+--   group = "GoAutoFormat",
+--   pattern = "*.go",
+--   callback = function()
+--     GoFormatAndImports(3000)
+--   end,
+-- })
 
 vim.api.nvim_create_autocmd("BufWritePre", {
-  group = "GoAutoFormat",
+  group = vim.api.nvim_create_augroup("GoAutoFormat", { clear = true }),
   pattern = "*.go",
   callback = function()
-    GoFormatAndImports(3000)
+    vim.lsp.buf.format({ timeout_ms = 3000 })
   end,
 })

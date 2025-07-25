@@ -66,6 +66,42 @@ vim.keymap.set("i", "<Tab>", function()
   end
 end, { desc = "Copilot Accept or Next Completion", silent = true })
 
+local function open_grug_in_file(search_term)
+  local grug = require("grug-far")
+  local buffer = vim.fn.expand("%")
+  grug.open({
+    transient = true,
+    prefills = {
+      find = search_term,
+      paths = buffer,
+    },
+  })
+end
+
+-- Normal mode: open grug with current file path
+vim.keymap.set("n", "<leader>sf", function()
+  open_grug_in_file("")
+end, { desc = "Search and Replace in current file", silent = true })
+
+-- Visual mode: open grug with selected text as search term
+vim.keymap.set("v", "<leader>sf", function()
+  -- Get the selected text
+  local _, ls, cs = unpack(vim.fn.getpos("'<"))
+  local _, le, ce = unpack(vim.fn.getpos("'>"))
+  local lines = vim.fn.getline(ls, le)
+
+  if #lines == 0 then
+    return
+  end
+
+  -- Trim to selected range
+  lines[#lines] = string.sub(lines[#lines], 1, ce)
+  lines[1] = string.sub(lines[1], cs)
+
+  local selection = table.concat(lines, "\n")
+  open_grug_in_file(selection)
+end, { desc = "Search and Replace with selection", silent = true })
+
 -- vim.keymap.set(
 --   "n",
 --   "<leader>sl",

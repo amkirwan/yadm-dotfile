@@ -19,6 +19,17 @@ return {
             -- Workaround for the lack of a DAP strategy in neotest-go: https://github.com/nvim-neotest/neotest-go/issues/12
             { "<leader>td", "<cmd>lua require('dap-go').debug_test()<CR>", desc = "Debug Nearest (Go)" },
           },
+          cmd = {
+            "gopls",
+            "-remote=auto",
+            "-rpc.trace",
+            "-v",
+          },
+          init_options = {
+            gofumpt = true,
+            memoryMode = "DegradeClosed",
+            staticcheck = true,
+          },
           settings = {
             gopls = {
               gofumpt = true,
@@ -58,17 +69,6 @@ return {
         },
       },
       setup = {
-        cmd = {
-          "gopls",
-          "-remote=auto",
-          "-rpc.trace",
-          "-v",
-        },
-        init_options = {
-          gofumpt = true,
-          memoryMode = "DegradeClosed",
-          staticcheck = true,
-        },
         gopls = function(_, opts)
           -- workaround for gopls not supporting semanticTokensProvider
           -- https://github.com/golang/go/issues/54531#issuecomment-1464982242

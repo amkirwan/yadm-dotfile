@@ -34,15 +34,28 @@ vim.keymap.set("n", "<leader>bC", ":BufferLinePickClose<CR>", { desc = "Close bu
 vim.keymap.set("n", "<leader>bse", ":BufferLineSortByExtension<CR>", { desc = "Sort buffers by extension" })
 vim.keymap.set("n", "<leader>bsd", ":BufferLineSortByDirectory<CR>", { desc = "Sort buffers by dir" })
 
--- vim.keymap.set("n", "<leader>1", '<cmd>lua require("bufferline").go_to(1, true)<cr>', { desc = "Buffer 1" })
--- vim.keymap.set("n", "<leader>2", '<cmd>lua require("bufferline").go_to(2, true)<cr>', { desc = "Buffer 2" })
--- vim.keymap.set("n", "<leader>3", '<cmd>lua require("bufferline").go_to(3, true)<cr>', { desc = "Buffer 3" })
--- vim.keymap.set("n", "<leader>4", '<cmd>lua require("bufferline").go_to(4, true)<cr>', { desc = "Buffer 4" })
--- vim.keymap.set("n", "<leader>5", '<cmd>lua require("bufferline").go_to(5, true)<cr>', { desc = "Buffer 5" })
--- vim.keymap.set("n", "<leader>6", '<cmd>lua require("bufferline").go_to(6, true)<cr>', { desc = "Buffer 6" })
--- vim.keymap.set("n", "<leader>7", '<cmd>lua require("bufferline").go_to(7, true)<cr>', { desc = "Buffer 7" })
--- vim.keymap.set("n", "<leader>8", '<cmd>lua require("bufferline").go_to(8, true)<cr>', { desc = "Buffer 8" })
--- vim.keymap.set("n", "<leader>9", '<cmd>lua require("bufferline").go_to(9, true)<cr>', { desc = "Buffer 9" })
+vim.keymap.set("n", "<leader>1", '<cmd>lua require("bufferline").go_to(1, true)<cr>', { desc = "Buffer 1" })
+vim.keymap.set("n", "<leader>2", '<cmd>lua require("bufferline").go_to(2, true)<cr>', { desc = "Buffer 2" })
+vim.keymap.set("n", "<leader>3", '<cmd>lua require("bufferline").go_to(3, true)<cr>', { desc = "Buffer 3" })
+vim.keymap.set("n", "<leader>4", '<cmd>lua require("bufferline").go_to(4, true)<cr>', { desc = "Buffer 4" })
+vim.keymap.set("n", "<leader>5", '<cmd>lua require("bufferline").go_to(5, true)<cr>', { desc = "Buffer 5" })
+vim.keymap.set("n", "<leader>6", '<cmd>lua require("bufferline").go_to(6, true)<cr>', { desc = "Buffer 6" })
+vim.keymap.set("n", "<leader>7", '<cmd>lua require("bufferline").go_to(7, true)<cr>', { desc = "Buffer 7" })
+vim.keymap.set("n", "<leader>8", '<cmd>lua require("bufferline").go_to(8, true)<cr>', { desc = "Buffer 8" })
+vim.keymap.set("n", "<leader>9", '<cmd>lua require("bufferline").go_to(9, true)<cr>', { desc = "Buffer 9" })
+
+local wk = require("which-key")
+wk.add({
+  { "<leader>1", hidden = true },
+  { "<leader>2", hidden = true },
+  { "<leader>3", hidden = true },
+  { "<leader>4", hidden = true },
+  { "<leader>5", hidden = true },
+  { "<leader>6", hidden = true },
+  { "<leader>7", hidden = true },
+  { "<leader>8", hidden = true },
+  { "<leader>9", hidden = true },
+})
 
 -- lsp diagnostic to show in popup when text is too long
 vim.keymap.set(

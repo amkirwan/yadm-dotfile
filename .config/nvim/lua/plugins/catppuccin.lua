@@ -2,6 +2,7 @@ return {
   "catppuccin/nvim",
   lazy = true,
   name = "catppuccin",
+  tag = "v1.10.0", -- Pin to v1.10 to avoid a breaking change in V1.11 API
   opts = {
     integrations = {
       aerial = true,

@@ -12,6 +12,7 @@
   ff = only
 [commit]
   template = ~/.gitmessage
+	gpgsign = true
 [core]
   editor = nvim
 [fetch]

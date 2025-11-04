@@ -12,7 +12,6 @@
   ff = only
 [commit]
   template = ~/.gitmessage
-	gpgsign = true
 [core]
   editor = nvim
 [fetch]
@@ -29,3 +28,9 @@
 [pretty]
   colored = format:%Cred%h%Creset %s %Cgreen(%cr) %C(bold gray)%an%Creset
 	name = akirwan
+[gpg]
+	format = x509
+[gpg "x509"]
+	program = /opt/uber/bin/signingfx
+[user]
+	signingkey = C8:64:D4:26:C1:DC:0F:10:7C:63:9B:CB:79:39:CE:7B:81:56:DA:30

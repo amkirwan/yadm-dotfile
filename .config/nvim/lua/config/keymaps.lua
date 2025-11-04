@@ -115,6 +115,10 @@ vim.keymap.set("v", "<leader>sf", function()
   open_grug_in_file(selection)
 end, { desc = "Search and Replace with selection", silent = true })
 
+vim.keymap.set("n", "<leader>e", function()
+  Snacks.explorer()
+end, { desc = "Focus Snacks Explorer" })
+
 -- vim.keymap.set(
 --   "n",
 --   "<leader>sl",
